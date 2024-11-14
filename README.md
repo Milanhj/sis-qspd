@@ -34,7 +34,7 @@ The dynamics of a deterministic $SIS$ model is given by a system of differential
 
 $$
 \begin{align*}
-\frac{dS}{dt} &= -\frac{\beta}{N}SI + {\gamma}I \\[6pt]
+\frac{dS}{dt} &= -\frac{\beta}{N}SI + {\gamma}I \\
 \frac{dI}{dt} &= \frac{\beta}{N}SI - {\gamma}I
 \end{align*}
 $$
@@ -64,9 +64,9 @@ Take the number of susceptible, $S(t)$, and infected individuals, $I(t)$, at tim
 
 $$
 p_{ji}({\Delta}t) = 
-\begin{cases} {b(i){\Delta}t + o{\Delta}t}, & \mbox{j = i + 1} \\[4.5pt] 
-{d(i){\Delta}t + o{\Delta}t}, & \mbox{j = i - 1} \\[4.5pt] 
-{1 - [b(i) + d(i)]{\Delta}t + o{\Delta}t}, & \mbox{j = i} \\[4.5pt]
+\begin{cases} {b(i){\Delta}t + o{\Delta}t}, & \mbox{j = i + 1} \\ 
+{d(i){\Delta}t + o{\Delta}t}, & \mbox{j = i - 1} \\
+{1 - [b(i) + d(i)]{\Delta}t + o{\Delta}t}, & \mbox{j = i} \\
 o{\Delta}t, & \mbox{otherwise} \end{cases}
 $$
 
@@ -99,7 +99,7 @@ The first, $p^1$, and second, $p^2$, approximations are given by,
 
 $$
 \begin{align*}
-p_i^1 &= p_1^1 \frac{ (N-1)! }{ i(N-i)! } \left( \frac{R_0}{N} \right)^{i-1}{ ,} \qquad{i = 2, 3,... N} \\[8pt]
+p_i^1 &= p_1^1 \frac{ (N-1)! }{ i(N-i)! } \left( \frac{R_0}{N} \right)^{i-1}{ ,} \qquad{i = 2, 3,... N} \\
 p_i^2 &= p_1^2 \frac{ (N-1)! }{ (N-i)! } \left( \frac{R_0}{N} \right)^{i-1}{ ,} \qquad{i = 2, 3,... N}
 \end{align*}
 $$
