@@ -1,4 +1,3 @@
-<br>
 
 # Quasi-Stationary Distribution of an SIS Model
 
@@ -44,13 +43,6 @@ Where $\beta$ is the effective contact rate, $\gamma$ is the recovery rate, and 
 Together, $\beta$ and $\gamma$ define the basic reproduction number, $R_0$, where $R_0 = \frac{\beta}{\gamma}$. $R_0$ is a critical parameter reflecting the number of secondary cases expected from a single index case in a completely susceptible population. There is a high probability that an epidemic will occur when $R_0$ is greater than $1$. No epidemic is possible when $R_0$ is less than $1$.
 
 
-
-<p align="center" width="500%">
-    <img width="80%" src="outputs/det_plots.png">
-</p>
-
-*The change in infections over time for a deterministic $SIS$ model with $R_0$ greater than or less than unity.*
-
 <br>
 <br>
 
@@ -77,14 +69,6 @@ Here, zero is an absorbing state, meaning that all simulations will eventually c
 <br>
 
 
-<p align="center" width="500%">
-    <img width="90%" src="outputs/stochastic_plots.png">
-</p>
-
-*Stochastic realizations for 100 simulations from an $SIS$ model, pictured for $R_0$ both greater than and less than the deterministic threshold.*
-
-
-
 <br>
 
 ### Quasi-Stationary Probability Distribution
@@ -93,7 +77,7 @@ Here, zero is an absorbing state, meaning that all simulations will eventually c
 
 True equilibrium of a stochastic $SIS$ model is $0$ for all values of $R_0$, but the system can come to a separate, quasi-equilibrium if prevented from reaching the disease-free state. This quasi-stationary distribution approaches a geometric distribution when $R_0 <1$, and a normal distribution when $R_0 >1$. If a disease is disappearing ($R_0 <1$), the distribution of infectious cases should be approximately geometric.
 
-I use two methods from Näsell 1996 to approximate the quasi-stationary distribution for different $R_0$. Both methods use an iterative scheme to approximate the Kolmogorov forward equations and solve for quasi-stationary distribution indirectly.
+I use two methods from Näsell 1996 to approximate the quasi-stationary distribution for different $R_0$. Both methods use an iterative scheme to approximate the Kolmogorov forward equations and solve for quasi-stationary distribution indirectly. We can then use these approximations to plot the probability density at quasi-equilibrium for different values of $R$.
 
 The first, $p^1$, and second, $p^2$, approximations are given by,
 
@@ -119,21 +103,6 @@ $$
 <br> <br>
 
 
-We can use these approximations to plot the probability density at quasi-equilibrium for different values of $R$.
-
-<p align="center" width="100%">
-    <img width="60%" src="outputs/r0.8_approx.png">
-</p>
-
-<p align="center" width="100%">
-    <img width="60%" src="outputs/r2_approx.png">
-</p>
-
-*Approximations of the quasi-stationary probability distribution of an $SIS$ model for $R_0$ = 0.8 and 2. Best-fit exponential distribution shown in red, and best-fit normal distribution shown in blue.*
-
-<br> 
-<br>
-
 ## Trachoma Surveillance
 
 <br>
@@ -143,23 +112,6 @@ The trachoma modeling team at Proctor has been using TF prevalence surveys to te
 There are 3 survey types for trachoma surveillance: baseline, impact (TIS), and trachoma surveillance surveys (or TSS), which are administered two years after a TIS measurement below 5% TF. TSS provide a unique opportunity to explore these distributions because they detail trachoma prevalence in areas that have already met the criteria for control.
 
 We found strong evidence that TF distributions are monotonically decreasing in a majority of the districts surveyed. This result is consistent with past findings on leprosy and onchocerciasis, as well as trachoma done at a smaller scale. We were able to fit a geometric distribution to a much larger database, including TSS from around 10,000 villages across about 300 districts in 6 countries. 
-
-<br>
-
-<p align="center" width="500%">
-    <img width="90%" src="outputs/beta_for_district.png">
-</p>
-
-*Beta density averaged across districts for village-level data, stratified by country.*
-
-<br>
-<br>
-
-<p align="center" width="500%">
-    <img width="60%" src="outputs/district_level_prev.png">
-</p>
-
-*The distribution of TSS TF prevalence at the district level, and the best-fit exponential distribution.*
 
 
 <br>
@@ -177,7 +129,5 @@ Using distributions to assess progress towards elimination is encouraging for th
 
 3. **A geometric distribution of cases may imply control.** An infectious disease may be considered controlled when sub-critical transmission has been achieved $(R<1)$. An observed geometric distribution provides evidence that $R$ is less than $1$, given that the theoretical distribution under sub-critical transmission is geometric.
 
-
-<br>
 
 <br> <br> <br>
