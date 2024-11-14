@@ -5,9 +5,7 @@ Simulating and approximating the quasi-stationary distribution of a stochastic $
 
 <br>
 
-### Project Structure
-
-<br>
+## Project Structure
 
 -   ***0_functions.R*** : Collected SIS functions. Also includes functions used to asses trachoma prevalence distributions with a Cramér-von Mises statistic and maximum-likelihood estimations for geometric, negative binomial, Poisson, beta-geometric, exponential, and normal distributions.
 
@@ -21,9 +19,7 @@ Simulating and approximating the quasi-stationary distribution of a stochastic $
 
 <br>
 
-### Deterministic SIS Model
-
-<br>
+## Deterministic SIS Model
 
 Here I use a Susceptible-infectious-susceptible ($SIS$) process to model the transmission dynamics of an infectious disease in a closed population, assuming that infected individuals return to a fully susceptible state upon recovery.
 
@@ -44,11 +40,8 @@ Together, $\beta$ and $\gamma$ define the basic reproduction number, $R_0$, wher
 
 
 <br>
-<br>
 
-### Stochastic SIS Model
-
-<br>
+## Stochastic SIS Model
 
 Now, suppose we introduce probabilities that a new infection or recovery will occur. A stochastic $SIS$ model can be represented as a continuous time markov chain (CTMC), in which the state of the system at any time, $t$, depends only on the state at time $t-1$.
 
@@ -66,14 +59,10 @@ Where $b(i) = \frac{{\beta}i(N-i)}{N}{\Delta}t$ denotes a new infection, and $d(
 
 
 Here, zero is an absorbing state, meaning that all simulations will eventually converge to a zero-infection state regardless of $R_0$. However, the model can reach a stable distribution when conditioned on non-extinction.
-<br>
-
 
 <br>
 
-### Quasi-Stationary Probability Distribution
-
-<br>
+## Quasi-Stationary Probability Distribution
 
 True equilibrium of a stochastic $SIS$ model is $0$ for all values of $R_0$, but the system can come to a separate, quasi-equilibrium if prevented from reaching the disease-free state. This quasi-stationary distribution approaches a geometric distribution when $R_0 <1$, and a normal distribution when $R_0 >1$. If a disease is disappearing ($R_0 <1$), the distribution of infectious cases should be approximately geometric.
 
@@ -103,9 +92,7 @@ $$
 <br> <br>
 
 
-## Trachoma Surveillance
-
-<br>
+# Trachoma Surveillance
 
 The trachoma modeling team at Proctor has been using TF prevalence surveys to test this theory with data. We expect that, in areas where trachoma is disappearing, the distribution of cases should be approximately geometric (discrete data) or exponential (continuous data).
 
@@ -116,8 +103,7 @@ We found strong evidence that TF distributions are monotonically decreasing in a
 
 <br>
 
-### Implications for Control
-<br>
+## Implications for Control
 
 A disease is likely disappearing in areas where prevalence fits a geometric distribution. If prevalence is normally distributed, it is unlikely that the disease is disappearing, and suggests areas of super-critical transmission $(R>1)$.
 
@@ -130,4 +116,4 @@ Using distributions to assess progress towards elimination is encouraging for th
 3. **A geometric distribution of cases may imply control.** An infectious disease may be considered controlled when sub-critical transmission has been achieved $(R<1)$. An observed geometric distribution provides evidence that $R$ is less than $1$, given that the theoretical distribution under sub-critical transmission is geometric.
 
 
-<br> <br> <br>
+<br> <br> 
