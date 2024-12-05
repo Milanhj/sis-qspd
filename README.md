@@ -89,31 +89,9 @@ $$
 p_1^2 = \left[\sum^N_{k=1} \frac{ (N-1)! }{ (N-k)! } \left(\frac{R_0}{N} \right)^{k-1} \right]^{-1}
 $$
 
-<br> <br>
-
-
-# Trachoma Surveillance
-
-The trachoma modeling team at Proctor has been using TF prevalence surveys to test this theory with data. We expect that, in areas where trachoma is disappearing, the distribution of cases should be approximately geometric (discrete data) or exponential (continuous data).
-
-There are 3 survey types for trachoma surveillance: baseline, impact (TIS), and trachoma surveillance surveys (or TSS), which are administered two years after a TIS measurement below 5% TF. TSS provide a unique opportunity to explore these distributions because they detail trachoma prevalence in areas that have already met the criteria for control.
-
-We found strong evidence that TF distributions are monotonically decreasing in a majority of the districts surveyed. This result is consistent with past findings on leprosy and onchocerciasis, as well as trachoma done at a smaller scale. We were able to fit a geometric distribution to a much larger database, including TSS from around 10,000 villages across about 300 districts in 6 countries. 
-
-
 <br>
 
-## Implications for Control
 
 A disease is likely disappearing in areas where prevalence fits a geometric distribution. If prevalence is normally distributed, it is unlikely that the disease is disappearing, and suggests areas of super-critical transmission $(R>1)$.
 
-Using distributions to assess progress towards elimination is encouraging for three reasons:
-
-1.  **A geometric distribution is defined by a single parameter,** $p$. Here, $p$ represents the probability of screening positive for TF. $p$ is a sufficient statistic, meaning that it contains all the information in the data for the geometric model. If we have an estimate for $p$, we are able to predict the entire distribution of cases without having to screen every village.
-
-2.  **Outliers don't necessarily indicate program failure or hotspots for transmission.** A geometric distribution is relatively heavy-tailed, which means higher prevalence villages are expected by random chance, even if a disease is in decline.
-
-3. **A geometric distribution of cases may imply control.** An infectious disease may be considered controlled when sub-critical transmission has been achieved $(R<1)$. An observed geometric distribution provides evidence that $R$ is less than $1$, given that the theoretical distribution under sub-critical transmission is geometric.
-
-
-<br> <br> 
+<br><br>
