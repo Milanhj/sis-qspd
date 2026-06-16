@@ -13,7 +13,8 @@ set.seed(301)
 load("outputs/approximations/approx_p1_p2.rda")
 
 # Simulations 
-load("outputs/simulations/sim20_n100_tmax150.rda")         # n = 20
+load("outputs/simulations/sim10_n100_tmax100.rda")         # n = 10
+# load("outputs/simulations/sim20_n100_tmax150.rda")         # n = 20
 # load("outputs/simulations/sim50_n100_tmax200.rda")       # n = 50
 
 # Cross-sections
@@ -28,25 +29,27 @@ load("outputs/simulations/crsct_5000_n100_tmax200.rda")    # cross-sections
 
 
 # Plot state paths from each simulation for a single value of R
-plot_sims <- function(paths, title, N, tmax){ 
+plot_sims <- function(paths, title, N, tmax = NULL){ 
   
   # Find longest path for plotting xlim
   lengths <- vector()
   for (k in 1:length(paths)){
     lengths[[k]] <- length(paths[[k]])
   }
-  # longest path 
-  lmax <- max(lengths)
+  
+  # longest path if no specified tmax
+  if (is.null(tmax)) tmax <- max(lengths)
+
   # First simulation
   y <- paths[[1]]
   # Initialize plot-- first index in solid black
-  plot(y, main = title, ylim = c(0,N), xlim = c(0, lmax),
-       ylab = "I", xlab = "time", 
+  plot(y, main = title, ylim = c(0,N), xlim = c(0, tmax),
+       ylab = "Infected", xlab = "Time", col = alpha("black", 0.4),
        type = "l", lwd = 0.7)
   # Loop through all simulations
   for (i in 2:length(paths)) {
     yi <- paths[[i]]
-    lines(yi, col = alpha("black", 0.2), lwd = 0.7)
+    lines(yi, col = alpha("black", 0.4), lwd = 0.7)
   }
   
 } # end function
@@ -83,7 +86,8 @@ neg_ll_normal <- function(theta, x) {
 
 
 # Plot the approximations of the PDF at quasi-equilibrium sequentially
-plot_qspd <- function(approx, N, plot_dist = FALSE){
+plot_qspd <- function(approx, N, color = "grey20", cex.lab = 1, cex.axis = 1,
+                      cex.main = 1, width = 3, plot_dist = FALSE){
   
   if (plot_dist == TRUE){
     
@@ -108,7 +112,8 @@ plot_qspd <- function(approx, N, plot_dist = FALSE){
         theta_exp <- optim(lambda, neg_ll_exp, method = "BFGS", 
                          hessian = TRUE, x = exp_vals)$par 
         # plot values when R0 < 1
-        plot(states, dat, type = "h", lwd = 3, lend = 2,
+        plot(states, dat, type = "h", lwd = width, lend = 2, col = color,
+             cex.lab = cex.lab, cex.axis = cex.axis, cex.main = cex.main,
              main = title, xlab = xlab, ylab = "Density"
              )
         # exponential distribution
@@ -126,7 +131,8 @@ plot_qspd <- function(approx, N, plot_dist = FALSE){
                               hessian = TRUE, x = norm_vals)$par 
           
           # plot values when R0 > 1
-          plot(states, dat, type = "h", lwd = 3, lend = 2,
+          plot(states, dat, type = "h", lwd = width, lend = 2, col = color,
+               cex.lab = cex.lab, cex.axis = cex.axis, cex.main = cex.main,
                main = title, xlab = xlab, ylab = "Density"
                )
           # normal distribution
@@ -153,7 +159,8 @@ plot_qspd <- function(approx, N, plot_dist = FALSE){
                               hessian = TRUE, x = norm_vals)$par 
           
           # plot values when R0 = 1
-          plot(states, dat, type = "h", lwd = 3, lend = 2,
+          plot(states, dat, type = "h", lwd = width, lend = 2, col = color,
+               cex.lab = cex.lab, cex.axis = cex.axis, cex.main = cex.main,
                main = title, xlab = xlab, ylab = "Density"
                )
           # exponential distribution
@@ -179,7 +186,8 @@ plot_qspd <- function(approx, N, plot_dist = FALSE){
       states <- seq(1,N,1)
       
       # plot distribution infected
-      plot(states, dat, type = "h", lwd = 3, lend = 2,
+      plot(states, dat, type = "h", lwd = width, lend = 2, col = color,
+           cex.lab = cex.lab, cex.axis = cex.axis, cex.main = cex.main,
            main = title, xlab = xlab, ylab = "Density"
       )
     } # end for
@@ -190,6 +198,9 @@ plot_qspd <- function(approx, N, plot_dist = FALSE){
 
 
 
+
+
+sims_fixed_i$`R0 = 2`
 # Plot Simulations -------------------------------------------------------------
 
 
@@ -197,8 +208,8 @@ names(sims_fixed_i)
 
 for (i in 1:length(sims_fixed_i)){
   sim <- sims_fixed_i[[i]]
-  title <- str_c(names(sims_fixed_i)[i], " Fixed I0")
-  plot_sims(paths = sim, title, N = 100, tmax = 300)
+  title <- str_c(names(sims_fixed_i)[i])
+  plot_sims(paths = sim, title, N = 100, tmax = 3500)
 }
 
 
@@ -219,15 +230,25 @@ for (i in 1:length(sims_fixed_i)){
 
 set.seed(301) # again for reproducibility 
 
+# "#7d98ea"
+# "#4060c8"
+# "#9f2d55"
+# "#412F88"
+
 
 # Approximation 1
-plot_qspd(approx = out_p1, N = 100, plot_dist = FALSE)
+plot_qspd(
+  approx = out_p1, N = 100, color = "#9f2d55", cex.lab = 1.4, cex.axis = 1.3,
+  cex.main = 1.6, width = 5,
+  plot_dist = FALSE
+  )
+
 plot_qspd(approx = out_p1, N = 100, plot_dist = TRUE)
 
 
 
 # Approximation 2
-plot_qspd(approx = out_p2, N = 100, plot_dist = FALSE)
+plot_qspd(approx = out_p2, N = 100, color = "#9f2d55", plot_dist = FALSE)
 plot_qspd(approx = out_p2, N = 100, plot_dist = TRUE)
 
 

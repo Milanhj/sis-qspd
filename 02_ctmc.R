@@ -150,8 +150,9 @@ params <- tibble(
 N <- 100
 
 # Number of simulations and time
-nsims <- 20
-tmax <- 150
+nsims <- 10
+#tmax <- 150
+tmax <- 100
 
 
 
@@ -261,7 +262,11 @@ names(sims_fixed_i) <- c(str_c("R0 = ", as.character(params$R0)))
 
 # Save simulations to analyze in a separate script (04_analysis.R)
 
-# 10 simulations
+save(sims_fixed_i, # sims_prop_i,
+     file = "outputs/simulations/sim10_n100_tmax100.rda"
+)
+
+# # 10 simulations
 # save(sims_fixed_i, # sims_prop_i,
 #      file = "outputs/simulations/sim10_n100_tmax150.rda"
 #      )
