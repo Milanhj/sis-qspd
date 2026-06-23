@@ -87,6 +87,7 @@ neg_ll_normal <- function(theta, x) {
 
 # Plot the approximations of the PDF at quasi-equilibrium sequentially
 plot_qspd <- function(approx, N, color = "grey20", cex.lab = 1, cex.axis = 1,
+                      xlim = c(0,100),
                       cex.main = 1, width = 3, plot_dist = FALSE){
   
   if (plot_dist == TRUE){
@@ -114,7 +115,7 @@ plot_qspd <- function(approx, N, color = "grey20", cex.lab = 1, cex.axis = 1,
         # plot values when R0 < 1
         plot(states, dat, type = "h", lwd = width, lend = 2, col = color,
              cex.lab = cex.lab, cex.axis = cex.axis, cex.main = cex.main,
-             main = title, xlab = xlab, ylab = "Density"
+             main = title, xlab = xlab, ylab = "Density", xlim = xlim
              )
         # exponential distribution
         lines(states, dexp(states, rate = theta_exp), col = "red", lwd = 2)
@@ -133,7 +134,7 @@ plot_qspd <- function(approx, N, color = "grey20", cex.lab = 1, cex.axis = 1,
           # plot values when R0 > 1
           plot(states, dat, type = "h", lwd = width, lend = 2, col = color,
                cex.lab = cex.lab, cex.axis = cex.axis, cex.main = cex.main,
-               main = title, xlab = xlab, ylab = "Density"
+               main = title, xlab = xlab, ylab = "Density", xlim = xlim
                )
           # normal distribution
           lines(states, dnorm(states, mean = theta_norm[1],
@@ -161,7 +162,7 @@ plot_qspd <- function(approx, N, color = "grey20", cex.lab = 1, cex.axis = 1,
           # plot values when R0 = 1
           plot(states, dat, type = "h", lwd = width, lend = 2, col = color,
                cex.lab = cex.lab, cex.axis = cex.axis, cex.main = cex.main,
-               main = title, xlab = xlab, ylab = "Density"
+               main = title, xlab = xlab, ylab = "Density", xlim = xlim
                )
           # exponential distribution
           lines(states, dexp(states, rate = theta_exp),
@@ -188,7 +189,7 @@ plot_qspd <- function(approx, N, color = "grey20", cex.lab = 1, cex.axis = 1,
       # plot distribution infected
       plot(states, dat, type = "h", lwd = width, lend = 2, col = color,
            cex.lab = cex.lab, cex.axis = cex.axis, cex.main = cex.main,
-           main = title, xlab = xlab, ylab = "Density"
+           main = title, xlab = xlab, ylab = "Density", xlim = xlim
       )
     } # end for
     
@@ -238,11 +239,15 @@ set.seed(301) # again for reproducibility
 
 # Approximation 1
 plot_qspd(
-  approx = out_p1, N = 100, color = "#9f2d55", cex.lab = 1.4, cex.axis = 1.3,
-  cex.main = 1.6, width = 5,
+  approx = out_p1, N = 100, color = "#9f2d55", cex.lab = 1.48, cex.axis = 1.5,
+  cex.main = 1.7, width = 15, xlim = c(0, 40),
   plot_dist = FALSE
   )
-
+plot_qspd(
+  approx = out_p1, N = 100, color = "#9f2d55", cex.lab = 1.48, cex.axis = 1.5,
+  cex.main = 1.7, width = 6.175, xlim = c(0, 100),
+  plot_dist = FALSE
+)
 plot_qspd(approx = out_p1, N = 100, plot_dist = TRUE)
 
 
